@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire Me - Kishore Ravi</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style type="text/tailwindcss">
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer theme {
+        :root {
+            --bg-dark: #09090B;
+            --bg-darker: #000000;
+            --accent-start: #F43F5E;
+            --accent-end: #E11D48;
+        }
+    }
+
+    @layer base {
+        body {
+            @apply bg-[var(--bg-dark)] text-gray-300 font-['Inter',sans-serif] overflow-x-hidden antialiased;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            @apply font-['Poppins',sans-serif] text-white tracking-tight;
+        }
+    }
+
+    @layer components {
+        .glass-card {
+            @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+        }
+        .text-gradient {
+            @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--accent-start)] to-[var(--accent-end)];
+        }
+        .btn-primary {
+            @apply relative inline-flex items-center justify-center px-8 py-3 font-semibold text-white transition-all duration-300 bg-gradient-to-r from-[var(--accent-start)] to-[var(--accent-end)] rounded-full hover:shadow-[0_0_20px_rgba(139,92,246,0.5)] hover:scale-105;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" src="components/Navbar.js"></script>
+    <script type="text/babel" src="components/Footer.js"></script>
+    <script type="text/babel" src="hire-app.js"></script>
+</body>
+</html>
