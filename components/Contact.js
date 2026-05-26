@@ -423,33 +423,62 @@ formData.append(
   </div>
 
 </div>
+{/* CALENDLY */}
+<div className="glass-card p-8 flex flex-col">
 
-                {/* CALENDLY */}
-                <div className="glass-card p-8 flex flex-col">
+  <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
+    <div className="icon-calendar text-3xl text-blue-400"></div>
+  </div>
 
-                  <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
-                    <div className="icon-calendar text-3xl text-blue-400"></div>
-                  </div>
+  <h3 className="text-xl font-bold text-white mb-3">
+    Book a Meeting
+  </h3>
 
-                  <h3 className="text-xl font-bold text-white mb-3">
-                    Book a Meeting
-                  </h3>
+  <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
+    Schedule a meeting to discuss your project ideas, pricing, and workflow.
+  </p>
 
-                  <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
-                    Schedule a meeting to discuss your project.
-                  </p>
+  <div className="space-y-3">
 
-                  <a
-                    href="https://calendly.com/YOUR_USERNAME"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-blue-500 transition-all flex items-center justify-center gap-2"
-                  >
-                    Schedule a Call
-                    <div className="icon-arrow-right"></div>
-                  </a>
+    {/* FREE CONSULTATION */}
+    <a
+      href="https://calendly.com/app/scheduled_events/user/me"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-blue-500 transition-all flex items-center justify-center gap-2"
+    >
+      Free Consultation
+      <div className="icon-arrow-right"></div>
+    </a>
 
-                </div>{/* EMAIL */}
+    {/* PROJECT DISCUSSION */}
+    <a
+      href="https://calendly.com/YOUR_USERNAME/project-call"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-blue-500 transition-all flex items-center justify-center gap-2"
+    >
+      Project Discussion
+      <div className="icon-arrow-right"></div>
+    </a>
+
+    {/* UI/UX REVIEW */}
+    <a
+      href="https://calendly.com/YOUR_USERNAME/uiux-review"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-blue-500 transition-all flex items-center justify-center gap-2"
+    >
+      UI/UX Review Call
+      <div className="icon-arrow-right"></div>
+    </a>
+
+  </div>
+
+</div>
+
+
+{/* EMAIL */}
 <div className="glass-card p-8 flex flex-col">
 
   <div className="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6">
@@ -461,21 +490,47 @@ formData.append(
   </h3>
 
   <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
-    Reach out directly for project inquiries.
+    Reach out directly for project inquiries, collaborations, or freelance work.
   </p>
 
-  {/* GMAIL DIRECT COMPOSE */}
-  <a
-    href="https://mail.google.com/mail/?view=cm&fs=1&to=kishoresde006@gmail.com&su=Project%20Inquiry&body=Hi%20Kishore,%20I%20want%20to%20discuss%20a%20project."
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-purple-500 transition-all flex items-center justify-center gap-2"
-  >
-    Send Mail
-    <div className="icon-arrow-right"></div>
-  </a>
+  <div className="space-y-3">
 
-// </div>
+    {/* PROJECT INQUIRY */}
+    <a
+      href="https://mail.google.com/mail/?view=cm&fs=1&to=kishoresde006@gmail.com&su=Project%20Inquiry&body=Hi%20Kishore,%20I%20want%20to%20discuss%20a%20project."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-purple-500 transition-all flex items-center justify-center gap-2"
+    >
+      Project Inquiry
+      <div className="icon-arrow-right"></div>
+    </a>
+
+    {/* FREELANCE WORK */}
+    <a
+      href="https://mail.google.com/mail/?view=cm&fs=1&to=kishoresde006@gmail.com&su=Freelance%20Work&body=Hello%20Kishore,%20I%20am%20interested%20in%20working%20with%20you."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-purple-500 transition-all flex items-center justify-center gap-2"
+    >
+      Freelance Work
+      <div className="icon-arrow-right"></div>
+    </a>
+
+    {/* QUICK CONNECT */}
+    <a
+      href="https://mail.google.com/mail/?view=cm&fs=1&to=kishoresde006@gmail.com&su=Quick%20Connect&body=Hi%20Kishore,%20I%20would%20like%20to%20connect%20with%20you."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-purple-500 transition-all flex items-center justify-center gap-2"
+    >
+      Quick Connect
+      <div className="icon-arrow-right"></div>
+    </a>
+
+  </div>
+
+</div>
 
               {/* </div> */}
 
