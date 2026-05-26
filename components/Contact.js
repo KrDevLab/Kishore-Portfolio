@@ -371,31 +371,58 @@ formData.append(
               <div className="grid md:grid-cols-3 gap-6">
 
                 {/* WHATSAPP */}
-                <div className="glass-card p-8 flex flex-col">
+<div className="glass-card p-8 flex flex-col">
 
-                  <div className="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center mb-6">
-                    <div className="icon-message-circle text-3xl text-green-400"></div>
-                  </div>
+  <div className="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center mb-6">
+    <div className="icon-message-circle text-3xl text-green-400"></div>
+  </div>
 
-                  <h3 className="text-xl font-bold text-white mb-3">
-                    Chat on WhatsApp
-                  </h3>
+  <h3 className="text-xl font-bold text-white mb-3">
+    Chat on WhatsApp
+  </h3>
 
-                  <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
-                    Quickly discuss your project ideas directly through WhatsApp.
-                  </p>
+  <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
+    Quickly discuss your project ideas directly through WhatsApp.
+  </p>
 
-                  <a
-                    href="https://wa.me/917397753765"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-green-500 transition-all flex items-center justify-center gap-2"
-                  >
-                    Start WhatsApp Chat
-                    <div className="icon-arrow-right"></div>
-                  </a>
+  <div className="space-y-3">
 
-                </div>
+    {/* Freelance Inquiry */}
+    <a
+      href="https://wa.me/917397753765?text=Hi%20Design2Debug,%20I%20saw%20your%20portfolio%20and%20I%20want%20a%20UI/UX%20design%20for%20my%20business."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-green-500 transition-all flex items-center justify-center gap-2"
+    >
+      UI/UX Design Inquiry
+      <div className="icon-arrow-right"></div>
+    </a>
+
+    {/* Website Project */}
+    <a
+      href="https://wa.me/917397753765?text=Hello,%20I%20need%20a%20modern%20portfolio%20website.%20Can%20we%20discuss%20pricing?"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-green-500 transition-all flex items-center justify-center gap-2"
+    >
+      Website Project
+      <div className="icon-arrow-right"></div>
+    </a>
+
+    {/* Quick Connect */}
+    <a
+      href="https://wa.me/917397753765?text=Hi%20Kishore,%20I'm%20interested%20in%20working%20with%20you."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-green-500 transition-all flex items-center justify-center gap-2"
+    >
+      Quick Connect
+      <div className="icon-arrow-right"></div>
+    </a>
+
+  </div>
+
+</div>
 
                 {/* CALENDLY */}
                 <div className="glass-card p-8 flex flex-col">
