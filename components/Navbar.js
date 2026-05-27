@@ -25,25 +25,26 @@ function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'py-3 glass-card border-x-0 border-t-0 rounded-none bg-opacity-80'
-          : 'py-4 bg-transparent'
+          : 'py-3 bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex justify-between items-center">
+      {/* NAVBAR CONTAINER */}
+      <div className="w-full px-4 flex items-center justify-between">
 
         {/* LOGO + BRAND */}
         <a
           href="/"
-          className="flex items-center gap-[2px] sm:gap-1"
+          className="flex items-center"
         >
           {/* LOGO */}
           <img
             src="/image/logo.png"
             alt="Design2Debug Logo"
-            className="w-14 h-14 sm:w-16 sm:h-16 object-contain"
+            className="w-12 h-12 object-contain"
           />
 
           {/* BRAND NAME */}
-          <span className="text-[20px] sm:text-2xl font-bold font-['Poppins'] text-white leading-none -ml-1">
+          <span className="text-[17px] sm:text-2xl font-bold font-['Poppins'] text-white leading-none -ml-1 whitespace-nowrap">
             Design2Debug
           </span>
         </a>
@@ -74,7 +75,7 @@ function Navbar() {
 
         {/* MOBILE MENU BUTTON */}
         <button
-          className="md:hidden text-gray-300 hover:text-white transition-colors flex-shrink-0"
+          className="md:hidden ml-3 text-gray-300 hover:text-white transition-colors flex-shrink-0"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <div className={`icon-${isMobileMenuOpen ? 'x' : 'menu'} text-2xl`}></div>
