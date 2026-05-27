@@ -80,7 +80,7 @@ function HirePage() {
                 Want to know more about my skills, tools, and experience?
               </p>
               {/* ADD YOUR RESUME PDF LINK HERE */}
-              <a href="#" target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <a href="/pdf/Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Download Resume <div className="icon-arrow-right ml-2 text-lg"></div>
               </a>
             </div>
