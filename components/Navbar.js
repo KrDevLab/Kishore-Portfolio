@@ -1,8 +1,10 @@
 function Navbar() {
+
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   React.useEffect(() => {
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -10,6 +12,7 @@ function Navbar() {
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
+
   }, []);
 
   const navLinks = [
@@ -21,90 +24,141 @@ function Navbar() {
   ];
 
   return (
+
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'py-2 glass-card border-x-0 border-t-0 rounded-none bg-opacity-80'
-          : 'py-2 bg-transparent'
+          ? 'py-3 glass-card border-x-0 border-t-0 rounded-none bg-opacity-80'
+          : 'py-3 bg-transparent'
       }`}
     >
+
       {/* NAVBAR CONTAINER */}
-      <div className="w-full px-3 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3 sm:px-5 lg:px-8">
 
-        {/* LEFT SIDE */}
-        <a
-          href="/"
-          className="flex items-center min-w-0"
-        >
-          {/* LOGO */}
-          <img
-            src="/image/logo.png"
-            alt="Design2Debug Logo"
-            className="w-10 h-10 sm:w-14 sm:h-14 object-contain flex-shrink-0"
-          />
+        <div className="flex items-center justify-between">
 
-          {/* BRAND NAME */}
-          <span className="text-[15px] sm:text-2xl font-bold font-['Poppins'] text-white leading-none ml-1 truncate">
-            Design2Debug
-          </span>
-        </a>
-
-        {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center space-x-8">
-
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
-            >
-              {link.name}
-
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[var(--accent-start)] to-[var(--accent-end)] transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          ))}
-
+          {/* LOGO + BRAND */}
           <a
-            href="#contact"
-            className="px-6 py-2 rounded-full border border-white/20 text-white text-sm font-medium hover:bg-white/10 transition-all duration-300"
+            href="/"
+            className="flex items-center  ml-8 sm:ml-5 lg:ml-6"//gap-1 sm:gap-3
           >
-            Let's Talk
+
+            {/* LOGO */}
+            <img
+              src="/image/logo.png"
+              alt="Design2Debug Logo"
+              className="
+                w-12 h-12
+                sm:w-14 sm:h-14
+                md:w-16 md:h-16
+                lg:w-20 lg:h-20
+                object-contain
+                flex-shrink-0
+              "
+            />
+
+            {/* BRAND NAME */}
+            <span
+              className="
+                text-[18px]
+                sm:text-[22px]
+                md:text-[24px]
+                lg:text-[26px]
+                font-bold
+                font-['Poppins']
+                text-white
+                leading-none
+                whitespace-nowrap
+              "
+            >
+              Design2Debug
+            </span>
+
           </a>
+
+          {/* DESKTOP NAVIGATION */}
+          <div className="hidden md:flex items-center gap-8">
+
+            {navLinks.map((link) => (
+
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
+              >
+
+                {link.name}
+
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[var(--accent-start)] to-[var(--accent-end)] transition-all duration-300 group-hover:w-full"></span>
+
+              </a>
+
+            ))}
+
+            {/* CONTACT BUTTON */}
+            <a
+              href="#contact"
+              className="px-6 py-2 rounded-full border border-white/20 text-white text-sm font-medium hover:bg-white/10 transition-all duration-300"
+            >
+              Let's Talk
+            </a>
+
+          </div>
+
+          {/* MOBILE MENU BUTTON */}
+          <button
+            className="md:hidden text-white flex-shrink-0"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+
+            <div
+              className={`icon-${isMobileMenuOpen ? 'x' : 'menu'} text-2xl`}
+            />
+
+          </button>
+
         </div>
 
-        {/* MOBILE MENU BUTTON */}
-        <button
-          className="md:hidden ml-2 flex-shrink-0 text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <div className={`icon-${isMobileMenuOpen ? 'x' : 'menu'} text-2xl`} />
-        </button>
       </div>
 
-      {/* MOBILE NAVIGATION */}
+      {/* MOBILE MENU */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full glass-card border-x-0 border-t-0 rounded-none p-6 flex flex-col space-y-4">
 
-          {navLinks.map((link) => (
+        <div className="md:hidden mt-4 px-4">
+
+          <div className="glass-card p-6 flex flex-col gap-5">
+
+            {navLinks.map((link) => (
+
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-base font-medium text-gray-300 hover:text-white transition-colors"
+              >
+
+                {link.name}
+
+              </a>
+
+            ))}
+
+            {/* MOBILE CONTACT BUTTON */}
             <a
-              key={link.name}
-              href={link.href}
+              href="#contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-lg font-medium text-gray-300 hover:text-white transition-colors"
+              className="px-6 py-3 text-center rounded-xl bg-white/10 text-white font-medium hover:bg-white/20 transition-all"
             >
-              {link.name}
+              Let's Talk
             </a>
-          ))}
 
-          <a
-            href="#contact"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="px-6 py-3 text-center rounded-lg bg-white/10 text-white font-medium mt-4 hover:bg-white/20 transition-all"
-          >
-            Let's Talk
-          </a>
+          </div>
+
         </div>
+
       )}
+
     </nav>
   );
 }

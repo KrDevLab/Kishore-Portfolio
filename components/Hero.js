@@ -53,7 +53,7 @@ function Hero() {
               <div className="absolute inset-0 bg-gradient-to-tr from-[var(--accent-start)] to-[var(--accent-end)] rounded-[2rem] rotate-3 opacity-50"></div>
               {/* ADD YOUR HERO IMAGE URL HERE */}
               <img 
-                src="../image/Pro Pic.png" 
+                src="/image/Pro Pic.png" 
                 alt="Kishore Ravi" 
                 className="absolute inset-0 w-full h-full object-cover rounded-[2rem] -rotate-3 hover:rotate-0 transition-transform duration-500 glass-card"
               />
