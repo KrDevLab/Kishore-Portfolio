@@ -24,32 +24,32 @@ function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'py-3 glass-card border-x-0 border-t-0 rounded-none bg-opacity-80'
-          : 'py-3 bg-transparent'
+          ? 'py-2 glass-card border-x-0 border-t-0 rounded-none bg-opacity-80'
+          : 'py-2 bg-transparent'
       }`}
     >
       {/* NAVBAR CONTAINER */}
-      <div className="w-full px-4 flex items-center justify-between">
+      <div className="w-full px-3 flex items-center justify-between">
 
-        {/* LOGO + BRAND */}
+        {/* LEFT SIDE */}
         <a
           href="/"
-          className="flex items-center"
+          className="flex items-center min-w-0"
         >
           {/* LOGO */}
           <img
             src="/image/logo.png"
             alt="Design2Debug Logo"
-            className="w-12 h-12 object-contain"
+            className="w-10 h-10 sm:w-14 sm:h-14 object-contain flex-shrink-0"
           />
 
           {/* BRAND NAME */}
-          <span className="text-[17px] sm:text-2xl font-bold font-['Poppins'] text-white leading-none -ml-1 whitespace-nowrap">
+          <span className="text-[15px] sm:text-2xl font-bold font-['Poppins'] text-white leading-none ml-1 truncate">
             Design2Debug
           </span>
         </a>
 
-        {/* DESKTOP NAVIGATION */}
+        {/* DESKTOP MENU */}
         <div className="hidden md:flex items-center space-x-8">
 
           {navLinks.map((link) => (
@@ -64,7 +64,6 @@ function Navbar() {
             </a>
           ))}
 
-          {/* CONTACT BUTTON */}
           <a
             href="#contact"
             className="px-6 py-2 rounded-full border border-white/20 text-white text-sm font-medium hover:bg-white/10 transition-all duration-300"
@@ -75,10 +74,10 @@ function Navbar() {
 
         {/* MOBILE MENU BUTTON */}
         <button
-          className="md:hidden ml-3 text-gray-300 hover:text-white transition-colors flex-shrink-0"
+          className="md:hidden ml-2 flex-shrink-0 text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          <div className={`icon-${isMobileMenuOpen ? 'x' : 'menu'} text-2xl`}></div>
+          <div className={`icon-${isMobileMenuOpen ? 'x' : 'menu'} text-2xl`} />
         </button>
       </div>
 
@@ -97,7 +96,6 @@ function Navbar() {
             </a>
           ))}
 
-          {/* MOBILE CONTACT BUTTON */}
           <a
             href="#contact"
             onClick={() => setIsMobileMenuOpen(false)}
