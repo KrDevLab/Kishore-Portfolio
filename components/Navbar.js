@@ -72,7 +72,7 @@ function Navbar() {
                 whitespace-nowrap
               "
             >
-              Design2Debug
+              Kishore Ravi
             </span>
 
           </a>
