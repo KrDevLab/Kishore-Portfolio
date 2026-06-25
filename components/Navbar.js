@@ -49,11 +49,11 @@ function Navbar() {
               src="/image/logo.png"
               alt="Design2Debug Logo"
               className="
-                w-12 h-12
-                sm:w-14 sm:h-14
+                w-16 h-16
+                sm:w-18 sm:h-18
                 md:w-16 md:h-16
                 lg:w-20 lg:h-20
-                object-contain
+              
                 flex-shrink-0
               "
             />
