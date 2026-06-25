@@ -53,7 +53,7 @@ function Navbar() {
                 sm:w-18 sm:h-18
                 md:w-16 md:h-16
                 lg:w-20 lg:h-20
-              
+                object contain
                 flex-shrink-0
               "
             />
