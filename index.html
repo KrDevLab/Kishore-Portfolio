@@ -1,43 +1,96 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Kishore Ravi - UI/UX Designer & Frontend Developer</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <meta
-        name="description"
-        content="Portfolio of Kishore Ravi, UI/UX Designer and Frontend Developer."
-    >
+    <title>Kishore Ravi | UI/UX Designer & Frontend Developer</title>
+
+    <meta name="description"
+          content="Portfolio of Kishore Ravi - UI/UX Designer, Frontend Developer and Flutter Developer.">
+
+    <meta name="keywords"
+          content="Kishore Ravi, UI UX Designer, Frontend Developer, Flutter Developer, Portfolio">
+
+    <meta name="author" content="Kishore Ravi">
+
+    <meta name="theme-color" content="#09090B">
+
+    <link rel="canonical" href="https://www.kishoravi.in">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kishore Ravi Portfolio">
+    <meta property="og:description"
+          content="UI/UX Designer & Frontend Developer">
+    <meta property="og:type" content="website">
+    <meta property="og:url"
+          content="https://www.kishoravi.in">
+
+    <meta property="og:image"
+          content="assets/profile.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.png">
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="preload"
+          href="style.css"
+          as="style">
+
+    <link rel="stylesheet"
+          href="style.css">
 
     <!-- React -->
-    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
-    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script defer
+        src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js">
+    </script>
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer
+        src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js">
+    </script>
+
+    <!-- Babel (temporary until components are migrated) -->
+    <script defer
+        src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js">
+    </script>
+
+    <!-- Tailwind CDN (temporary) -->
+    <script defer
+        src="https://cdn.tailwindcss.com">
+    </script>
 
     <!-- Icons -->
     <link
-        href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css"
         rel="stylesheet"
-    >
-
-    <!-- CSS -->
-    <link href="style.css" rel="stylesheet">
+        href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css">
 
     <style type="text/tailwindcss">
+          
+   
         @tailwind base;
         @tailwind components;
         @tailwind utilities;
@@ -150,6 +203,9 @@
             }
         }
     </style>
+
+
+
 </head>
 
 <body class="selection:bg-[var(--accent-start)] selection:text-white">
@@ -157,6 +213,7 @@
     <div id="root"></div>
 
     <!-- Components -->
+
     <script type="text/babel" src="components/Navbar.js"></script>
     <script type="text/babel" src="components/Hero.js"></script>
     <script type="text/babel" src="components/About.js"></script>
@@ -170,4 +227,5 @@
     <script type="text/babel" src="app.js"></script>
 
 </body>
+
 </html>

@@ -5,7 +5,7 @@ function Projects() {
   
   const tabs = ['All', 'UI Design', 'Frontend', 'Freelance'];
 
-  const projects = [
+  const projects = React.useMemo(() => [
     {
       title: "Finance Dashboard UI",
       category: "UI Design",
@@ -42,35 +42,84 @@ function Projects() {
       img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       tools: ["React", "Tailwind"]
     }
-  ];
+  ], []);
 
-  const filteredProjects = activeTab === 'All' ? projects : projects.filter(p => p.category === activeTab);
+  const filteredProjects = React.useMemo(() => {
+    return activeTab === "All"
+        ? projects
+        : projects.filter(
+            project => project.category === activeTab
+        );
+}, [activeTab, projects]);
 
-  React.useEffect(() => {
+React.useEffect(() => {
+
+    let timeout;
+
     const handleResize = () => {
-      if (window.innerWidth >= 1024) setVisibleItems(4);
-      else if (window.innerWidth >= 768) setVisibleItems(2);
-      else setVisibleItems(1);
-    };
-    
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
+        clearTimeout(timeout);
+
+        timeout = setTimeout(() => {
+
+            if (window.innerWidth >= 1024)
+                setVisibleItems(4);
+
+            else if (window.innerWidth >= 768)
+                setVisibleItems(2);
+
+            else
+                setVisibleItems(1);
+
+        }, 100);
+
+    };
+
+    handleResize();
+
+    window.addEventListener(
+        "resize",
+        handleResize,
+        { passive: true }
+    );
+
+    return () => {
+
+        clearTimeout(timeout);
+
+        window.removeEventListener(
+            "resize",
+            handleResize
+        );
+
+    };
+
+}, []);
   React.useEffect(() => {
     setCurrentIndex(0);
   }, [activeTab]);
 
   const maxIndex = Math.max(0, filteredProjects.length - visibleItems);
 
-  const handlePrev = () => {
-    setCurrentIndex(prev => (prev === 0 ? maxIndex : prev - 1));
-  };
+  const handlePrev = React.useCallback(() => {
 
-  const handleNext = () => {
-    setCurrentIndex(prev => (prev >= maxIndex ? 0 : prev + 1));
-  };
+    setCurrentIndex(prev =>
+        prev === 0
+            ? maxIndex
+            : prev - 1
+    );
+
+}, [maxIndex]);
+
+const handleNext = React.useCallback(() => {
+
+    setCurrentIndex(prev =>
+        prev >= maxIndex
+            ? 0
+            : prev + 1
+    );
+
+}, [maxIndex]);
 
   return (
     <section id="projects" className="py-24 relative overflow-hidden" data-name="projects" data-file="components/Projects.js">
@@ -98,22 +147,32 @@ function Projects() {
         <div className="relative group reveal-scale">
           <div className="overflow-hidden rounded-2xl mx-auto">
             <div 
-              className="flex transition-transform duration-700 ease-in-out"
+              className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * (100 / visibleItems)}%)` }}
             >
               {filteredProjects.map((project, idx) => (
                 <div 
-                  key={idx} 
+                  key={project.title}
                   className="w-full shrink-0 p-3"
                   style={{ flex: `0 0 ${100 / visibleItems}%` }}
                 >
                   <div className="glass-card h-full group/card overflow-hidden rounded-2xl border-white/5 hover:border-[var(--accent-start)]/30 transition-colors duration-500 flex flex-col">
                     <div className="relative aspect-video overflow-hidden bg-gray-900 shrink-0">
-                      <img 
-                        src={project.img} 
-                        alt={project.title}
-                        className={`w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110 ${project.isWIP ? 'opacity-40 grayscale' : 'opacity-80 group-hover/card:opacity-100'}`}
-                      />
+                      <img
+    src={project.img}
+    alt={project.title}
+    loading="lazy"
+    decoding="async"
+    fetchPriority="low"
+    draggable="false"
+    width="800"
+    height="450"
+    className={`w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105 ${
+        project.isWIP
+            ? "opacity-40 grayscale"
+            : "opacity-80 group-hover/card:opacity-100"
+    }`}
+/>
                       <div className="absolute inset-0 bg-gradient-to-t from-[#09090B] via-transparent to-transparent opacity-90"></div>
                       
                       {project.isWIP && (
@@ -142,7 +201,7 @@ function Projects() {
                         </div>
                         
                         {!project.isWIP && (
-                          <button className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-300 group-hover/card:bg-[var(--accent-start)] group-hover/card:text-white transition-all hover:scale-110 shrink-0">
+                          <button className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-300 group-hover/card:bg-[var(--accent-start)] group-hover/card:text-white transition-all hover:scale-105 shrink-0">
                             <div className="icon-arrow-up-right text-sm"></div>
                           </button>
                         )}

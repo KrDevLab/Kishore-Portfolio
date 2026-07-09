@@ -1,21 +1,28 @@
 function About() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   
-  const cards = [
+  const cards = React.useMemo(() => [
     { title: "UI Thinking", icon: "layout-template", color: "text-rose-400", bg: "bg-rose-500/10" },
     { title: "Wireframing", icon: "pen-tool", color: "text-red-400", bg: "bg-red-500/10" },
     { title: "Frontend Basics", icon: "file-code", color: "text-pink-400", bg: "bg-pink-500/10" },
     { title: "Figma Design", icon: "figma", color: "text-orange-400", bg: "bg-orange-500/10" },
     { title: "Responsive Layouts", icon: "smartphone", color: "text-rose-300", bg: "bg-rose-400/10" },
     { title: "Creative Problem Solving", icon: "lightbulb", color: "text-red-300", bg: "bg-red-400/10" }
-  ];
+  ], []);
 
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % cards.length);
-    }, 2500);
-    return () => clearInterval(timer);
-  }, [cards.length]);
+React.useEffect(() => {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (prefersReducedMotion) return;
+
+  const interval = setInterval(() => {
+    setActiveIndex((prev) => (prev + 1) % cards.length);
+  }, 2500);
+
+  return () => clearInterval(interval);
+}, [cards]);
 
   return (
     <section id="about" className="py-24 relative" data-name="about" data-file="components/About.js">
@@ -52,11 +59,11 @@ function About() {
                 
                 return (
                   <div 
-                    key={idx} 
-                    className={`absolute w-full p-6 glass-card flex items-center gap-4 transition-all duration-700 ease-in-out cursor-pointer`}
+                    key={card.title}
+                    className={`absolute w-full p-6 glass-card flex items-center gap-4 transition-all duration-500 ease-in-out cursor-pointer`}
                     style={{
-                      transform: `translateX(${offset * 30}px) translateZ(${-absOffset * 100}px) scale(${isActive ? 1 : 0.8})`,
-                      opacity: isActive ? 1 : 1 - absOffset * 0.3,
+                      transform: `translateX(${offset * 30}px) translateZ(${-absOffset * 70}px) scale(${isActive ? 1 : 0.8})`,
+                      opacity: isActive ? 1 : 0.75,
                       zIndex: cards.length - absOffset,
                       pointerEvents: isActive ? 'auto' : 'none'
                     }}
@@ -73,8 +80,13 @@ function About() {
         </div>
       </div>
       <style>{`
-        .perspective-1000 { perspective: 1000px; }
-        .transform-style-3d { transform-style: preserve-3d; }
+        .perspective-1000 {
+    perspective: 1000px;
+}
+
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
       `}</style>
     </section>
   );
