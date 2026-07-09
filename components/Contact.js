@@ -42,7 +42,7 @@ formData.append(
 
     const result = await response.json();
 
-    console.log(result);
+    
 
     if (result.success) {
       setIsSubmitted(true);
@@ -53,7 +53,7 @@ formData.append(
     }
 
   } catch (error) {
-    console.log(error);
+    
 
     alert("Network Error");
   }
@@ -71,9 +71,10 @@ formData.append(
         {/* =========================
             BACKGROUND GRADIENTS
         ========================= */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--accent-start)] opacity-10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--accent-start)] opacity-10 rounded-full blur-[80px] pointer-events-none"></div>
 
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[var(--accent-end)] opacity-10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[var(--accent-end)] opacity-10 rounded-full blur-[70px]
+opacity-5 pointer-events-none"></div>
 
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
 
@@ -181,7 +182,7 @@ formData.append(
                             name="name"
                             required
                             placeholder="John Doe"
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-[var(--accent-start)] focus:bg-white/10 transition-all"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-[var(--accent-start)] focus:bg-white/10 transition-transform"
                           />
 
                         </div>
@@ -189,16 +190,17 @@ formData.append(
                         {/* EMAIL */}
                         <div className="space-y-2">
 
-                          <label className="text-sm font-medium text-gray-400">
+                          <label htmlFor="email" className="text-sm font-medium text-gray-400">
                             Email Address
                           </label>
 
                           <input
+                          id="email"
                             type="email"
                             name="email"
                             required
                             placeholder="john@example.com"
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-[var(--accent-start)] focus:bg-white/10 transition-all"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-[var(--accent-start)] focus:bg-white/10 transition-transform"
                           />
 
                         </div>
@@ -306,7 +308,7 @@ formData.append(
                           required
                           rows="4"
                           placeholder="Tell me about your project goals, timeline, and any specific requirements..."
-                          className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-[var(--accent-start)] focus:bg-white/10 transition-all resize-none"
+                          className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-[var(--accent-start)] focus:bg-white/10 transition-transform resize-none"
                         ></textarea>
 
                       </div>
@@ -392,7 +394,7 @@ formData.append(
       href="https://wa.me/917397753765?text=Hi%20Design2Debug,%20I%20saw%20your%20portfolio%20and%20I%20want%20a%20UI/UX%20design%20for%20my%20business."
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-green-500 transition-all flex items-center justify-center gap-2"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-green-500 transition-transform flex items-center justify-center gap-2"
     >
       UI/UX Design Inquiry
       <div className="icon-arrow-right"></div>
@@ -403,7 +405,7 @@ formData.append(
       href="https://wa.me/917397753765?text=Hello,%20I%20need%20a%20modern%20portfolio%20website.%20Can%20we%20discuss%20pricing?"
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-green-500 transition-all flex items-center justify-center gap-2"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-green-500 transition-transform flex items-center justify-center gap-2"
     >
       Website Project
       <div className="icon-arrow-right"></div>
@@ -414,7 +416,7 @@ formData.append(
       href="https://wa.me/917397753765?text=Hi%20Kishore,%20I'm%20interested%20in%20working%20with%20you."
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-green-500 transition-all flex items-center justify-center gap-2"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-green-500 transition-transform flex items-center justify-center gap-2"
     >
       Quick Connect
       <div className="icon-arrow-right"></div>
@@ -445,7 +447,7 @@ formData.append(
       href="https://calendly.com/app/scheduled_events/user/me"
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-blue-500 transition-all flex items-center justify-center gap-2"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-blue-500 transition-transform flex items-center justify-center gap-2"
     >
       Free Consultation
       <div className="icon-arrow-right"></div>
@@ -456,7 +458,7 @@ formData.append(
       href="https://calendly.com/YOUR_USERNAME/project-call"
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-blue-500 transition-all flex items-center justify-center gap-2"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-blue-500 transition-transform flex items-center justify-center gap-2"
     >
       Project Discussion
       <div className="icon-arrow-right"></div>
@@ -467,7 +469,7 @@ formData.append(
       href="https://calendly.com/YOUR_USERNAME/uiux-review"
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-blue-500 transition-all flex items-center justify-center gap-2"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-blue-500 transition-transform flex items-center justify-center gap-2"
     >
       UI/UX Review Call
       <div className="icon-arrow-right"></div>
@@ -500,7 +502,7 @@ formData.append(
       href="https://mail.google.com/mail/?view=cm&fs=1&to=kishoresde006@gmail.com&su=Project%20Inquiry&body=Hi%20Kishore,%20I%20want%20to%20discuss%20a%20project."
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-purple-500 transition-all flex items-center justify-center gap-2"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-purple-500 transition-transform flex items-center justify-center gap-2"
     >
       Project Inquiry
       <div className="icon-arrow-right"></div>
@@ -511,7 +513,7 @@ formData.append(
       href="https://mail.google.com/mail/?view=cm&fs=1&to=kishoresde006@gmail.com&su=Freelance%20Work&body=Hello%20Kishore,%20I%20am%20interested%20in%20working%20with%20you."
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-purple-500 transition-all flex items-center justify-center gap-2"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-purple-500 transition-transform flex items-center justify-center gap-2"
     >
       Freelance Work
       <div className="icon-arrow-right"></div>
@@ -522,7 +524,7 @@ formData.append(
       href="https://mail.google.com/mail/?view=cm&fs=1&to=kishoresde006@gmail.com&su=Quick%20Connect&body=Hi%20Kishore,%20I%20would%20like%20to%20connect%20with%20you."
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-purple-500 transition-all flex items-center justify-center gap-2"
+      className="w-full py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-purple-500 transition-transform flex items-center justify-center gap-2"
     >
       Quick Connect
       <div className="icon-arrow-right"></div>

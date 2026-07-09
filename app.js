@@ -1,44 +1,38 @@
 class ErrorBoundary extends React.Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
       hasError: false,
-      error: null
     };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     return {
       hasError: true,
-      error
     };
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error(
-      'ErrorBoundary caught an error:',
-      error,
-      errorInfo.componentStack
-    );
+    // Log only during development
+    if (window.location.hostname === "localhost") {
+      console.error(error, errorInfo);
+    }
   }
 
   render() {
-
     if (this.state.hasError) {
-
       return (
         <div className="min-h-screen flex items-center justify-center bg-[#0F172A]">
 
-          <div className="text-center glass-card p-12">
+          <div className="glass-card p-12 text-center max-w-md">
 
             <h1 className="text-2xl font-bold text-white mb-4">
               Something went wrong
             </h1>
 
             <p className="text-gray-400 mb-6">
-              We're sorry, but something unexpected happened.
+              Please refresh the page and try again.
             </p>
 
             <button
@@ -49,6 +43,7 @@ class ErrorBoundary extends React.Component {
             </button>
 
           </div>
+
         </div>
       );
     }
@@ -58,37 +53,39 @@ class ErrorBoundary extends React.Component {
 }
 
 function useScrollReveal() {
-
   React.useEffect(() => {
 
-    const observerCallback = (entries, observer) => {
-
-      entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.15
-    };
-
     const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions
+
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("active");
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+
+      {
+        root: null,
+        rootMargin: "50px",
+        threshold: 0.1,
+      }
+
     );
 
     const elements = document.querySelectorAll(
-      '.reveal, .reveal-left, .reveal-right, .reveal-scale'
+      ".reveal,.reveal-left,.reveal-right,.reveal-scale"
     );
 
-    elements.forEach(el => observer.observe(el));
+    elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
 
@@ -97,67 +94,113 @@ function useScrollReveal() {
 
 function App() {
 
-  try {
+  useScrollReveal();
 
-    useScrollReveal();
+  return (
 
-    return (
+    <div
+      className="relative w-full overflow-x-hidden"
+      data-name="app"
+      data-file="app.js"
+    >
+
+      {/* Background Blobs */}
 
       <div
-        className="relative w-full overflow-x-hidden"
-        data-name="app"
-        data-file="app.js"
-      >
+        className="
+        hidden
+        lg:block
+        blob
+        bg-[var(--accent-start)]
+        w-80
+        h-80
+        rounded-full
+        top-0
+        left-0
+        mix-blend-screen
+        opacity-15
+      "
+      ></div>
 
-        {/* BLOBS */}
+      <div
+        className="
+        hidden
+        lg:block
+        blob
+        bg-[var(--accent-end)]
+        w-80
+        h-80
+        rounded-full
+        top-[20%]
+        right-0
+        mix-blend-screen
+        opacity-15
+      "
+        style={{
+          animationDelay: "2s",
+        }}
+      ></div>
 
-        <div className="hidden sm:block blob bg-[var(--accent-start)] w-72 h-72 sm:w-96 sm:h-96 rounded-full top-0 left-0 mix-blend-screen opacity-20"></div>
+      <div
+        className="
+        hidden
+        lg:block
+        blob
+        bg-[var(--accent-start)]
+        w-80
+        h-80
+        rounded-full
+        bottom-[20%]
+        left-0
+        mix-blend-screen
+        opacity-15
+      "
+        style={{
+          animationDelay: "4s",
+        }}
+      ></div>
 
-        <div
-          className="hidden sm:block blob bg-[var(--accent-end)] w-72 h-72 sm:w-96 sm:h-96 rounded-full top-[20%] right-0 mix-blend-screen opacity-20"
-          style={{ animationDelay: '2s' }}
-        ></div>
+      <Navbar />
 
-        <div
-          className="hidden sm:block blob bg-[var(--accent-start)] w-72 h-72 sm:w-96 sm:h-96 rounded-full bottom-[20%] left-0 mix-blend-screen opacity-20"
-          style={{ animationDelay: '4s' }}
-        ></div>
+      <main>
 
-        <Navbar />
+        <Hero />
 
-        <main className="overflow-x-hidden">
+        <About />
 
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Services />
-          <Experience />
-          <WhyWorkWithMe />
-          <Contact />
+        <Skills />
 
-        </main>
+        <Projects />
 
-        <Footer />
+        <Services />
 
-      </div>
-    );
+        <Experience />
 
-  } catch (error) {
+        <WhyWorkWithMe />
 
-    console.error('App component error:', error);
+        <Contact />
 
-    return null;
-  }
+      </main>
+
+      <Footer />
+
+    </div>
+
+  );
 }
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 root.render(
+  <React.StrictMode>
 
-  <ErrorBoundary>
-    <App />
-  </ErrorBoundary>
+    <ErrorBoundary>
+
+      <App />
+
+    </ErrorBoundary>
+
+  </React.StrictMode>
 );
